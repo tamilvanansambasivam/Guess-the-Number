@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Guess the Number Game (1-5)</title>
-</head>
-<body>
-  <h1>Guess the Number Game (1-5)</h1>
-  <p>Try to guess the secret number between 1 and 5.</p>
-  <input type="number" id="guessInput">
-  <button onclick="">Submit Guess</button>
-  <p id="message"></p>
+  <head>
+    <title>Guess the Number Game (1-5)</title>
+  </head>
+  <body>
+    <h1>Guess the Number Game (1-5)</h1>
+    <p>Try to guess the secret number between 1 and 5.</p>
+    <input type="number" id="guessInput" />
+    <button onclick="Clicked()">Submit Guess</button>
+    <p id="message"></p>
 
-  <script>
-    
-  </script>
-</body>
+    <script>
+      function Clicked() {
+        var guessInput = document.getElementById("guessInput");
+        var guess = parseInt(guessInput.value);
+        var message = document.getElementById("message");
+
+        if (guess >= 1 && guess <= 5) {
+          if (guess === Math.floor(Math.random() * 5) + 1) {
+            console.log("right");
+            message.innerText = "Right ✅";
+            guessInput.value = "";
+          } else {
+            console.log("wrong");
+            message.innerText = "Wrong ❌";
+
+            guessInput.value = "";
+          }
+        } else {
+          message.innerText = "Try again 🔄";
+
+          console.log("try again");
+
+          guessInput.value = "";
+        }
+      }
+    </script>
+  </body>
 </html>
-
